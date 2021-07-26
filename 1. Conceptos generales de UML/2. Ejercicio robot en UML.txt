@@ -1,0 +1,15 @@
+EJERCICIO DE MODELADO EN UML
+
+Enunciado:
+
+Queremos modelar un robot. Un robot puede estar encendido o apagado. 
+El robot conoce por sus sensores su posición actual usando coordenadas cartesianas bidimensionales 
+y tiene una orientación. Nuestro robot sólo puede dar giros de 90° y por lo tanto su orientación 
+sólo puede ser Norte, Sur, Este u Oeste.
+
+Nuestro robot debe indicarnos su estado (si está encendido o apagado) y permitir cambiar de estado. 
+Es capaz de informar de su posición en X y en Y, así como su Orientación. Nuestro robot puede además 
+girar 90° cada vez en sentido horario o anti-horario, y avanzar una distancia determinada en 
+dirección de su orientación.
+  
+(Ver el desarrollo del ejercicio en la cuenta de GenMyModel con el correo de la universidad)

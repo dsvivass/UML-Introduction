@@ -1,0 +1,304 @@
+DIAGRAMAS DE CLASE
+
+Podemos hacer una abstracción de una realidad y representar los elementos más importantes del problema.
+
+Un diagrama de clases tiene clases y asociaciones.
+
+CLASES
+
+Representa un conjunto de objetos 
+
+Las clases representan un conjunto de objetos que comparten las mismas características y 
+comportamientos. 
+
+Por ejemplo si quisiéramos modelar a un estudiante universitario crearíamos una clase de 
+estudiante que representa a todos los estudiantes de la universidad. 
+
+En UML para representar una clase utilizamos un rectángulo que está dividido en tres 
+compartimientos.
+
+ ---------------------
+|        NOMBRE       |
+ ---------------------
+|      ATRIBUTOS      |
+ ---------------------
+|                     |
+ ---------------------
+
+
+OBJETOS
+
+Los objetos son instancias particulares de las clases que ya tomaron valores. 
+
+En UML representaremos estos objetos que podemos instanciar a partir de la clase con rectángulos
+con las esquias redondeadas
+
+Y en el primer compartimiento nombraremos a qué clase pertenece.
+
+Todo esto tiene que ir subrayado.
+
+Por ejemplo nuestro estudiante que llamaremos e1 representa a Juan. 
+
+Pero podríamos tener un segundo objeto
+que vamos a llamar e2 que pertenece también a la clase estudiante
+
+y que va a representar a un estudiante que llamaremos María.
+
+  ------------------------
+/                          \
+|     e1 :Estudiante	   |
+|     --------------       |
+ --------------------------
+| nombre: "Juan"           |
+| carnet: 12345            |
+| fechaNacimiento: 1/1/00  |	
+\                          /
+  -------------------------
+
+  ------------------------
+/                          \
+|     e2 :Estudiante	   |
+|     --------------       |
+ --------------------------
+| nombre: "Maria"          |
+| carnet: 11111            |
+| fechaNacimiento: 5/6/00  |	
+\                          /
+  -------------------------
+
+Entonces, e1 que representa a Juan y e2 que representa a María son instancias diferentes 
+de nuestra clase de estudiantes, cada una con valores diferentes en sus atributos.
+
+ATRIBUTOS
+
+Los atributos de una clase representan la característica o propiedades que tendrán los objetos 
+de la misma. 
+
+Esto nos permite modelar con mayor precisión nuestra abstracción del problema. 
+Los atributos los escribiremos en este segundo compartimiento de nuestra clase. 
+
+Vamos a modelar nuestra clase estudiante con tres atributos, uno que representa el nombre, 
+uno que representa su código el que vamos a llamar carnet y uno que representa su fecha 
+de nacimiento.
+
+Cuando vamos a modelar los atributos nos corresponde decidir cuál es el mejor tipo de dato 
+para representar los valores que puede tomar un atributo. 
+
+Y otros lenguajes pueden tener 
+unos datos menos simples que son provistos para ayudarlos a ciertas representaciones más 
+complejas, por ejemplo en el caso de las fechas, el tipo date nos ayuda a modelarlas 
+evitando que nos preguntemos si usamos cadenas de caracteres o reales o enteros. 
+
+En nuestro caso, nombre va a ser una cadena de caracteres,
+carnet va a ser un entero, y fecha de nacimiento va a ser un date.
+
+los atributos tendrán una visibilidad que define si pueden ser vistos o usados por otras 
+clases. 
+
+Dentro de la misma clase no tiene mayor impacto, pero cuando empecemos a aumentar la 
+complejidad de nuestros modelos y añadir relaciones y otras clases, esta decisión va 
+a ser muy importante. 
+
+Por ahora no hablaremos nuestros atributos como privados, esto es solo pueden ser vistos 
+y usados por el mismo objeto. 
+
+Lo opuesto sería modelarlos como públicos y permitir que 
+cualquier otro objeto que conociera a los objetos que pertenece nuestra clase puedan 
+usarlos o modificarlos. 
+
+Los atributos privados los representamos con un símbolo menos (-). Si quisiéramos que fuesen 
+públicos los representaríamos con un símbolo más (+). 
+
+ --------------------------
+|     Estudiante           |
+ --------------------------
+| - nombre: String         |
+| - carnet: int            |
+| - fechaNacimiento: Date  |	
+ --------------------------
+|                          |
+ --------------------------
+
+cuando vamos a nombrar atributos primero, sus nombres deben ser explícitos. 
+
+Segundo, a diferencia de los nombres de las clases, estos comienzan con minúsculas 
+y si también respetan camel case. 
+
+Si agregamos varias palabras cada nueva palabra comienza la primera letra con mayúscula.
+
+
+#######################################################################################
+
+ENUMERACIONES
+
+Ahora veremos lo que son las enumeraciones. 
+
+En algunas ocasiones necesitamos crear atributos con diferentes categorías y para los que 
+no nos serviría simplemente utilizar los tipos de datos que ya conocemos. 
+
+Por ejemplo, los estudiantes podrían pertenecer a un programa de pregrado, posgrado o ser 
+de curso de extensión. 
+
+Esto es lo que llamamos el dominio de un atributo. Y para esto vamos a definir un tipo de 
+dato cuyos valores son tres, en este caso. 
+
+Diremos que estamos definiendo una enumeración. 
+
+Las enumeraciones son tipos de datos que el usuario define; su rango de valores son un 
+conjunto de constantes enteras, cada una con un nombre propio. 
+
+En UML las enumeraciones se representan en su propio rectángulo y arriba de su nombre 
+ponemos una anotación o un estereotipo, "enumeration", y su contenido son los nombres 
+de cada una de las constantes que hacen parte de la misma. 
+
+Por convención, el nombre de la enumeración comienza con su primera letra en mayúscula 
+y usa también "CamelCase" (TipoPrograma). 
+
+Por otro lado, cada uno de los elementos de la enumeración se debe nombrar con mayúscula 
+sostenida y, en caso de tener varias palabras compuestas, estas van separadas por guiones 
+bajos. 
+
+Ej:  
+
+ ---------------------------
+|     <<Enumeration>>       |     
+|       TipoPrograma        |
+ ---------------------------
+|     PREGRADO              |
+|     POSGRADO              |
+|     CURSO_EXTENSION       |	
+ ---------------------------
+
+
+Cuando luego usamos las enumeraciones como tipo de un atributo, el tipo justamente va a 
+ser el nombre de la enumeración. 
+
+En nuestro ejemplo, con la clase de "Estudiante" podríamos tener una enumeración que 
+represente si el estudiante es de pregrado, de posgrado o de surso de extensión.
+ 
+Tendremos entonces un atributo de tipo "Tipo Programa" para que identifique a qué programa 
+pertenece. 
+
+ --------------------------
+|     Estudiante           |
+ --------------------------
+| - nombre: String         |
+| - carnet: int            |
+| - fechaNacimiento: Date  |	
+| - programa: TipoPrograma |
+ --------------------------
+|                          |
+ --------------------------	
+
+¿Cómo lo usamos cuando creamos objetos? Tenemos a nuestros estudiantes que tendrán un 
+atributo que representa al programa al que pertenecen. 
+
+¿Qué valor puede tomar? Pregrado, posgrado o extensión. Entonces "e1", Juan, podría 
+ser un estudiante de pregrado y María, "e2", una estudiante de posgrado. 
+
+Recordemos que esos, junto con la extensión, son los únicos valores que puede tomar el 
+atributo "Programa". 
+
+  ------------------------
+/                          \
+|     e1 :Estudiante	   |
+|     --------------       |
+ --------------------------
+| nombre: "Juan"           |
+| carnet: 12345            |
+| fechaNacimiento: 1/1/00  |	
+| programa: PREGRADO       |
+\                          /
+  -------------------------
+
+  ------------------------
+/                          \
+|     e2 :Estudiante	   |
+|     --------------       |
+ --------------------------
+| nombre: "Maria"          |
+| carnet: 11111            |
+| fechaNacimiento: 5/6/00  |	
+| programa: POSGRADO       |
+\                          /
+  -------------------------
+
+MÉTODOS
+
+Ahora hablemos de los métodos. Los métodos son operaciones que están asociadas con la clase 
+y que cada objeto de la clase podrá realizar. 
+
+Podemos pensarlos como servicios que proveen los diferentes objetos y que van a modelar el 
+comportamiento de los objetos. 
+
+Los métodos en UML van en nuestro tercer compartimento del 
+diagrama y al igual que los atributos, tendrán una visibilidad, un tipo de retorno que ahora 
+puede no existir para los métodos que no van a devolver un valor y un nombre. 
+
+Un ejemplo clásico son los métodos que retornan o dan el valor de cada uno de los atributos 
+de un objeto, llamados "getters" en inglés y que, en español, por convención los nombramos 
+con el verbo "dar" seguido del nombre del atributo; 
+
+y los que permiten modificar dichos atributos, llamados "setters" en inglés y que, en español, 
+por convención nombramos con el verbo "cambiar" seguido del nombre del atributo. 
+
+En nuestro ejemplo tendremos, por ejemplo, el método "dar Nombre" que es público, es decir, 
+se indica con el símbolo más y que retorna un valor de tipo "string". 
+
+Para ser coherentes, cuando implementamos el método, éste dará el valor del atributo "nombre".
+
+Adicionalmente, un método puede tener uno o una lista de parámetros necesarios para realizar 
+su operación. 
+
+Pensemos en el método "setter" que cambia el valor de un atributo por otro nuevo. 
+
+Este nuevo valor debe venir de alguna parte y, por lo tanto, el método lo requiere como un 
+parámetro para funcionar. 
+
+ ------------------------------------
+|     Estudiante                     |
+ ------------------------------------
+| - nombre: String                   |
+| - carnet: int                      |
+| - fechaNacimiento: Date            |	
+| - programa: TipoPrograma           |
+ ------------------------------------
+| + darNombre():String               |
+| + cambiarNombre(String)            |
+| + darFechaNacimiento():Date        |
+| + cambiarFechaNacimiento(Date)     |
+ ------------------------------------	
+
+Por convención, los nombres de los métodos comienzan siempre con minúscula y cuando tienen 
+varias palabras usan también "CamelCase". 
+
+Vamos a crear los métodos que nos retornan y nos cambian los valores de cada uno de los 
+atributos de la clase de "Estudiante". Cuando usamos un lenguaje de programación orientada 
+a objetos, por ejemplo Java, e instanciamos nuestras clases como objetos, podemos invocar 
+nuestros métodos sobre cada uno. 
+
+Estas serán las operaciones, algoritmos o procedimientos que hacen parte del comportamiento 
+y tienen sentido dentro del contexto de cada objeto diferente. 
+
+Así, tus objetos pueden invocar al mismo método, pero su resultado será diferente porque 
+usará los valores propios de cada uno. 
+
+Por ejemplo, si tenemos dos objetos estudiantes, "e1" y "e2", sobre cada uno invocamos el 
+método "dar Nombre", cada uno nos dirá un valor diferente. "e1" nos dirá que se llama Juan 
+y "e2" nos dirá que se llama María.
+
+
+¿CÓMO SABEMOS QUÉ CLASE HACER QUÉ?
+
+Eso es todo un tema que se llama asignación de responsabilidades y que podemos ver en otros 
+cursos. 
+
+Por ahora vamos a usar una regla muy simple: 
+quién posea la información es quien deberá manipularla, informarla o modificarla. 
+
+Más aún, en este curso modelaremos nuestros problemas usando encapsulamiento.
+
+ENCAPSULAMIENTO
+ 
+Cada objeto oculta sus atributos, es decir, que se definen como privados y solo a través 
+de los métodos permitimos a otros objetos de otras clases conocerlos, usarlos y/o modificarlos.
