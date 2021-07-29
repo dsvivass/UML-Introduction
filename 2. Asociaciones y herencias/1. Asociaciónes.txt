@@ -1,20 +1,20 @@
-ASOCIACIONES
+ÔªøASOCIACIONES
 
 Las asociaciones representan las relaciones entre las diferentes clases. 
 
-Una asociaciÛn relaciona a dos clases. 
+Una asociaci√≥n relaciona a dos clases. 
 
-En UML, una asociaciÛn se representa con una lÌnea. 
+En UML, una asociaci√≥n se representa con una l√≠nea. 
 
-Por ejemplo, en este diagrama tenemos una clase llamada "Empresa" que modela una organizaciÛn 
+Por ejemplo, en este diagrama tenemos una clase llamada "Empresa" que modela una organizaci√≥n 
 empresarial del mundo real. 
 
-Queremos tambiÈn modelar a los empleados y, en particular, al empleado que la dirige. 
+Queremos tambi√©n modelar a los empleados y, en particular, al empleado que la dirige. 
 
-Y, para esto, definimos una clase que representa a los empleados y establecemos una asociaciÛn 
+Y, para esto, definimos una clase que representa a los empleados y establecemos una asociaci√≥n 
 entre las dos clases. 
 
-Entonces modelemos cÛmo una empresa y un empleado van a estar relacionados trazando una lÌnea 
+Entonces modelemos c√≥mo una empresa y un empleado van a estar relacionados trazando una l√≠nea 
 entre ambas clases. 
 
  ---------------------                       ---------------------
@@ -26,19 +26,19 @@ entre ambas clases.
  ---------------------                       ---------------------
 
 
-Hasta el momento sÛlo hemos representado que existe una relaciÛn entre empresa y empleado, 
-pero todavÌa no hemos descrito mucho al respecto de dicha relaciÛn. 
+Hasta el momento s√≥lo hemos representado que existe una relaci√≥n entre empresa y empleado, 
+pero todav√≠a no hemos descrito mucho al respecto de dicha relaci√≥n. 
 
-Es para ello que necesitamos darle un nombre y un nombre explÌcito que defina de quÈ se trata 
-la relaciÛn. 
+Es para ello que necesitamos darle un nombre y un nombre expl√≠cito que defina de qu√© se trata 
+la relaci√≥n. 
 
-A nuestra relaciÛn entre empresa y empleado la bautizaremos "dirigida Por" para representar 
+A nuestra relaci√≥n entre empresa y empleado la bautizaremos "dirigida Por" para representar 
 que la empresa es dirigida por el director, por el empleado director. 
 
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  |    ? dirigidaPor    |      Empresa        |
+|   EmpleadoDirector  |    ‚óÄ dirigidaPor    |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
@@ -47,12 +47,12 @@ que la empresa es dirigida por el director, por el empleado director.
 
 
 
-TambiÈn podemos darle un nombre para ser leÌdo en el sentido contrario diciendo que 
+Tambi√©n podemos darle un nombre para ser le√≠do en el sentido contrario diciendo que 
 "EmpleadoDirector" dirige a "Empresa". 
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  |       dirige ?      |      Empresa        |
+|   EmpleadoDirector  |       dirige ‚ñ∂      |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
@@ -60,41 +60,41 @@ TambiÈn podemos darle un nombre para ser leÌdo en el sentido contrario diciendo 
  ---------------------                       ---------------------
 
 
-Notemos, entonces, que el nombre va cerca de la relaciÛn en un lugar relativamente central 
-y usamos este tri·ngulo relleno para indicar hacia quÈ lado leemos el nombre para que tenga 
+Notemos, entonces, que el nombre va cerca de la relaci√≥n en un lugar relativamente central 
+y usamos este tri√°ngulo relleno para indicar hacia qu√© lado leemos el nombre para que tenga 
 sentido. 
 
 En el primer caso, vamos de "Empresa" a "EmpleadoDirector", una empresa es dirigida por un 
 empleado. 
 
-En el segundo, leemos de "Empleado" a "EmpresaDirector", un empleado dirige a una empresa. Y sÌ, 
-de nuevo los nombres comienzan con su primera letra min˙scula usando "Camel case", no dejamos 
-espacios, no usamos guiones, simplemente pegamos las palabras y cada nueva palabra tendr· su 
-primera letra inicial en may˙scula. 
+En el segundo, leemos de "Empleado" a "EmpresaDirector", un empleado dirige a una empresa. Y s√≠, 
+de nuevo los nombres comienzan con su primera letra min√∫scula usando "Camel case", no dejamos 
+espacios, no usamos guiones, simplemente pegamos las palabras y cada nueva palabra tendr√° su 
+primera letra inicial en may√∫scula. 
 
 CARDINALIDAD
 
-Hablemos ahora de la cardinalidad. Ya que describimos quÈ papel juega cada clase en la 
-relaciÛn, es el momento de aÒadir mayor precisiÛn, determinar cu·ntos elementos pueden 
-participar en la relaciÛn en un determinado momento. 
+Hablemos ahora de la cardinalidad. Ya que describimos qu√© papel juega cada clase en la 
+relaci√≥n, es el momento de a√±adir mayor precisi√≥n, determinar cu√°ntos elementos pueden 
+participar en la relaci√≥n en un determinado momento. 
 
 De nuestro ejemplo, podemos preguntarnos cosas como, si queremos modelar que todas las 
-empresas tienen al menos un director, øcÛmo lo hacemos? 
+empresas tienen al menos un director, ¬øc√≥mo lo hacemos? 
 
 Queremos modelar solamente que 
 algunos empleados son directores de empresas, que una empresa es dirigida por una junta 
 de empleados o, incluso, que hay un empleado que dirige a un curso o un consorcio de empresas. 
 
-Para representar la cardinalidad, nuevamente, en cada extremo tenemos que aÒadir una expresiÛn. 
+Para representar la cardinalidad, nuevamente, en cada extremo tenemos que a√±adir una expresi√≥n. 
 
-La cardinalidad m·s b·sica es uno. Hay exactamente un elemento en este rol y, cuando no se 
-indica explÌcitamente en la cardinalidad, asumimos que su valor es uno. 
+La cardinalidad m√°s b√°sica es uno. Hay exactamente un elemento en este rol y, cuando no se 
+indica expl√≠citamente en la cardinalidad, asumimos que su valor es uno. 
 
-Por ejemplo, una empresa tiene un ˙nico empleado que la dirige. 
+Por ejemplo, una empresa tiene un √∫nico empleado que la dirige. 
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  | 1     dirige ?      |      Empresa        |
+|   EmpleadoDirector  | 1     dirige ‚ñ∂      |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
@@ -102,15 +102,15 @@ Por ejemplo, una empresa tiene un ˙nico empleado que la dirige.
  ---------------------                       ---------------------
 
 
-La siguiente cardinalidad es cero a uno. Esto indica que el n˙mero de elementos de esta 
-relaciÛn puede ser o cero o uno. 
+La siguiente cardinalidad es cero a uno. Esto indica que el n√∫mero de elementos de esta 
+relaci√≥n puede ser o cero o uno. 
 
 Por ejemplo, una empresa puede tener o no tener un empleado que la dirige y, si lo tiene, 
 solamente es uno. 
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  | 0..1  dirige ?      |      Empresa        |
+|   EmpleadoDirector  | 0..1  dirige ‚ñ∂      |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
@@ -126,7 +126,7 @@ empleados que la van a dirigir.
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  | *     dirige ?      |      Empresa        |
+|   EmpleadoDirector  | *     dirige ‚ñ∂      |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
@@ -134,14 +134,14 @@ empleados que la van a dirigir.
  ---------------------                       ---------------------
 
 
-Finalmente, est· la cardinalidad "uno a muchos" expresada 
-como "uno dos puntos asterisco" y esta indica que debe haber al menos un objeto en la relaciÛn. 
+Finalmente, est√° la cardinalidad "uno a muchos" expresada 
+como "uno dos puntos asterisco" y esta indica que debe haber al menos un objeto en la relaci√≥n. 
 
 La empresa tiene una junta que la dirige, que siempre debe tener, al menos, un empleado.
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  | 1..*   dirige ?     |      Empresa        |
+|   EmpleadoDirector  | 1..*   dirige ‚ñ∂     |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
@@ -151,12 +151,12 @@ La empresa tiene una junta que la dirige, que siempre debe tener, al menos, un e
  
 Volviendo a nuestro ejemplo, debemos precisar la cardinalidad en ambos extremos. 
 
-Un empleado no necesariamente dirige una empresa. Si decidimos que, m·ximo, dirige una, 
-la cardinalidad ser· cero a uno. 
+Un empleado no necesariamente dirige una empresa. Si decidimos que, m√°ximo, dirige una, 
+la cardinalidad ser√° cero a uno. 
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  | 1..* dirige ?  0..1 |      Empresa        |
+|   EmpleadoDirector  | 1..* dirige ‚ñ∂  0..1 |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
@@ -165,11 +165,11 @@ la cardinalidad ser· cero a uno.
 
 
 Si decidimos que puede o no dirigir ninguna empresa o un consorcio de empresas, la 
-cardinalidad ser· cero a muchos. 
+cardinalidad ser√° cero a muchos. 
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  | 1..* dirige ?     * |      Empresa        |
+|   EmpleadoDirector  | 1..* dirige ‚ñ∂     * |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
@@ -179,34 +179,34 @@ cardinalidad ser· cero a muchos.
 
 Antes de terminar, vale la pena que aclaremos un asunto muy importante. 
 
-Entre dos clases pueden existir m·s de una asociaciÛn para modelar diferentes relaciones. 
+Entre dos clases pueden existir m√°s de una asociaci√≥n para modelar diferentes relaciones. 
 Vayamos a nuestro ejemplo. 
 
-Tenemos una asociaciÛn entre empresa y empleado para modelar que una empresa es dirigida 
+Tenemos una asociaci√≥n entre empresa y empleado para modelar que una empresa es dirigida 
 por un empleado. 
 
-Podemos ahora agregar una segunda asociaciÛn y modelar una relacio¥n algo 
+Podemos ahora agregar una segunda asociaci√≥n y modelar una relacio¬¥n algo 
 diferente, un empleado trabaja en una empresa. 
 
 Eligiendo una cardinalidad de uno para el lado de la empresa y una de cero a muchos para el 
-lado del empleado estamos, entonces, representando a travÈs de nuestra nueva asociaciÛn, 
+lado del empleado estamos, entonces, representando a trav√©s de nuestra nueva asociaci√≥n, 
 que varios empleados trabajan en una y solo una empresa y en una empresa trabajan muchos 
 empleados o incluso ninguno. 
 
 
  ---------------------                       ---------------------
-|   EmpleadoDirector  | *   dirige ?   0..1 |      Empresa        |
+|   EmpleadoDirector  | *   dirige ‚ñ∂   0..1 |      Empresa        |
  ---------------------                       ---------------------
 |                     | ------------------  |                     |
 |                     |                     |                     |
-|                     | *  trabajaEn ?    1 |                     |
+|                     | *  trabajaEn ‚ñ∂    1 |                     |
 |                     | ------------------  |                     |
  ---------------------                       ---------------------
 |                     |                     |                     |
  ---------------------                       ---------------------
 
 
-Esto es una relaciÛn adicional a la anterior en donde una empresa podÌa ser dirigida por 
+Esto es una relaci√≥n adicional a la anterior en donde una empresa pod√≠a ser dirigida por 
 una junta de empleados.
 
 
@@ -215,15 +215,15 @@ una junta de empleados.
 
 
 Tenemos un ejemplo, cursos y estudiantes. Modelamos la clase "Estudiante" y la clase "Curso", 
-y definimos una asociaciÛn que representa los cursos vistos por un estudiante, y la vamos a 
+y definimos una asociaci√≥n que representa los cursos vistos por un estudiante, y la vamos a 
 llamar "vistos Por". 
 
 Vamos a modelar que un curso puede no tener estudiantes o tener muchos estudiantes y que un 
-estudiante est· viendo al menos un curso. 
+estudiante est√° viendo al menos un curso. 
 
 
  ---------------------                         ---------------------
-|        Curso        | 1..* vistoPor ?     * |     Estudiante      |
+|        Curso        | 1..* vistoPor ‚ñ∂     * |     Estudiante      |
  ---------------------                         ---------------------
 |                     | --------------------  |                     |
  ---------------------                         ---------------------
@@ -231,21 +231,21 @@ estudiante est· viendo al menos un curso.
  ---------------------                         ---------------------
 
 
-Esto es la cardinalidad. Sin embargo, no sabemos todavÌa cÛmo participa cada objeto en la 
-relaciÛn, y esto es lo que vamos a definir ahora y lo que denominamos el rol de la asociaciÛn.
+Esto es la cardinalidad. Sin embargo, no sabemos todav√≠a c√≥mo participa cada objeto en la 
+relaci√≥n, y esto es lo que vamos a definir ahora y lo que denominamos el rol de la asociaci√≥n.
 
-Y a travÈs de estos roles vamos a aumentar la precisiÛn de nuestra abstracciÛn del problema. 
+Y a trav√©s de estos roles vamos a aumentar la precisi√≥n de nuestra abstracci√≥n del problema. 
 
-Entonces, los roles se ubican a cada extremo de una asociaciÛn y se nombran de manera explÌcita 
-describiendo el rol que juega el objeto en la relaciÛn muy claramente. 
+Entonces, los roles se ubican a cada extremo de una asociaci√≥n y se nombran de manera expl√≠cita 
+describiendo el rol que juega el objeto en la relaci√≥n muy claramente. 
 
-Por ejemplo, de este lado est·n los cursos que est· viendo un estudiante, asÌ que nombraremos 
+Por ejemplo, de este lado est√°n los cursos que est√° viendo un estudiante, as√≠ que nombraremos 
 el rol de la clase Cursos como "cursos Vistos", mientras que del lado de la clase estudiante 
-el rol ser· "estudiantes Inscritos". 
+el rol ser√° "estudiantes Inscritos". 
 
 
  ---------------------                                         ---------------------
-|        Curso        | 1..*           vistoPor ?           * |     Estudiante      |
+|        Curso        | 1..*           vistoPor ‚ñ∂           * |     Estudiante      |
  ---------------------                                         ---------------------
 |                     | ------------------------------------- |                     |
  ---------------------  cursosVistos     estudiantesInscritos  ---------------------
@@ -253,31 +253,31 @@ el rol ser· "estudiantes Inscritos".
  ---------------------                                         ---------------------
 
 
-Esto nos permite describir entonces que un estudiante tendr· varios cursos inscritos y por eso 
-hemos usado el "por" y, a su vez, un curso tendr· varios estudiantes inscritos que lo est·n 
+Esto nos permite describir entonces que un estudiante tendr√° varios cursos inscritos y por eso 
+hemos usado el "por" y, a su vez, un curso tendr√° varios estudiantes inscritos que lo est√°n 
 viendo. 
 
-Notemos entonces que los roles se nombran con su primera letra en min˙scula y respetando 
-"Camel Case" para cuando el nombre est· compuesto por varias palabras. Adem·s, el nombre del 
-rol es bastante significativo de la relaciÛn que existe entre ambas clases, 
-øno est·n de acuerdo?
+Notemos entonces que los roles se nombran con su primera letra en min√∫scula y respetando 
+"Camel Case" para cuando el nombre est√° compuesto por varias palabras. Adem√°s, el nombre del 
+rol es bastante significativo de la relaci√≥n que existe entre ambas clases, 
+¬øno est√°n de acuerdo?
 
 
 Veamos ahora otro concepto. Otra manera de aumentar el nivel de especificidad y detalle de 
-una relaciÛn es emplear navegabilidad. 
+una relaci√≥n es emplear navegabilidad. 
 
 NAVEGABILIDAD
 
-La navegabilidad es una manera de describir cÛmo las instancias de una clase pueden acceder 
+La navegabilidad es una manera de describir c√≥mo las instancias de una clase pueden acceder 
 las unas a las otras. 
 
-La manera de indicar la direcciÛn de la navegabilidad es dibujando una flecha sobre la lÌnea. 
+La manera de indicar la direcci√≥n de la navegabilidad es dibujando una flecha sobre la l√≠nea. 
 
-Las instancias del lado de la punta de la flecha podr·n ser accedidas por las instancias del 
+Las instancias del lado de la punta de la flecha podr√°n ser accedidas por las instancias del 
 principio. 
 
  ---------------------                                         ---------------------
-|        Curso        | 1..*           vistoPor ?           * |     Estudiante      |
+|        Curso        | 1..*           vistoPor ‚ñ∂           * |     Estudiante      |
  ---------------------                                         ---------------------
 |                     | ------------------------------------> |                     |
  ---------------------  cursosVistos     estudiantesInscritos  ---------------------
@@ -287,10 +287,10 @@ principio.
 Lo contrario no es posible. Cuando no se indica una punta de flecha, como en nuestro ejemplo, 
 se asume que la navegabilidad es bidireccional. 
 
-Esto serÌa bidireccional
+Esto ser√≠a bidireccional
 
  ---------------------                                         ---------------------
-|        Curso        | 1..*           vistoPor ?           * |     Estudiante      |
+|        Curso        | 1..*           vistoPor ‚ñ∂           * |     Estudiante      |
  ---------------------                                         ---------------------
 |                     | ------------------------------------- |                     |
  ---------------------  cursosVistos     estudiantesInscritos  ---------------------
@@ -299,17 +299,17 @@ Esto serÌa bidireccional
 
 Esto significa que las instancias relacionadas pueden verse mutuamente. 
 
-AsÌ que vayamos a un ejemplo diferente. Imaginemos una clase "SalÛn" y una clase "Curso". 
+As√≠ que vayamos a un ejemplo diferente. Imaginemos una clase "Sal√≥n" y una clase "Curso". 
 
 Un curso puede ser dictado en uno o varios salones, y esto es la cardinalidad. 
 
-Y dentro de nuestra abstracciÛn tiene sentido que, si bien podamos acceder a los salones desde
-las instancias de un curso, lo contrario sea menos pr·ctico y, por ende, determinamos que hay 
-una navegabilidad unidireccional en direcciÛn de la clase SalÛn. 
+Y dentro de nuestra abstracci√≥n tiene sentido que, si bien podamos acceder a los salones desde
+las instancias de un curso, lo contrario sea menos pr√°ctico y, por ende, determinamos que hay 
+una navegabilidad unidireccional en direcci√≥n de la clase Sal√≥n. 
 
 
  ---------------------                                         ---------------------
-|        Curso        |                dictadoEn ?       1..* |       SalÛn         |
+|        Curso        |                dictadoEn ‚ñ∂       1..* |       Sal√≥n         |
  ---------------------                                         ---------------------
 |                     | ------------------------------------- |                     |
  ---------------------                                 salones ---------------------
@@ -317,19 +317,19 @@ una navegabilidad unidireccional en direcciÛn de la clase SalÛn.
  ---------------------                                         ---------------------
 
 
-Miremos un ejemplo usando otro tipo de instancias, y traigamos de regreso a Juan y MarÌa de 
-nuestros vIdeos sobre sintaxis b·sica de clases. 
+Miremos un ejemplo usando otro tipo de instancias, y traigamos de regreso a Juan y Mar√≠a de 
+nuestros vIdeos sobre sintaxis b√°sica de clases. 
 
 Ambos son instancias de la clase Estudiante. Ahora, creemos una instancia de la clase Curso 
-y este curso ser· "IntroducciÛn a UML". 
+y este curso ser√° "Introducci√≥n a UML". 
 
 Lo que define nuestra navegabilidad es que del lado de las instancias de la clase Curso, 
-"IntroducciÛn a UML", este puede acceder a sus estudiantes Juan y MarÌa si est·n inscritos 
-en Èl, obviamente. 
+"Introducci√≥n a UML", este puede acceder a sus estudiantes Juan y Mar√≠a si est√°n inscritos 
+en √©l, obviamente. 
 
-Del lado de los estudiantes, Juan y MarÌa pueden acceder a su curso de IntroducciÛn a UML. 
-Si limit·ramos la navegabilidad desde la clase Estudiante hacia la clase Curso, Juan y MarÌa 
-podrÌan ver la instancia de Curso, pero este curso no sabrÌa ni tendrÌa acceso a sus estudiantes.
+Del lado de los estudiantes, Juan y Mar√≠a pueden acceder a su curso de Introducci√≥n a UML. 
+Si limit√°ramos la navegabilidad desde la clase Estudiante hacia la clase Curso, Juan y Mar√≠a 
+podr√≠an ver la instancia de Curso, pero este curso no sabr√≠a ni tendr√≠a acceso a sus estudiantes.
 
 
   ------------------------
@@ -351,14 +351,14 @@ podrÌan ver la instancia de Curso, pero este curso no sabrÌa ni tendrÌa acceso a
  --------------------------            |          ----------------------------
 | -nombre: "Maria"         |___________|
 | -carnet: 11111           |
-| -fechaNacimiento: 5/6/00 |	Los estudiantes saben quÈ curso est·n tomando
+| -fechaNacimiento: 5/6/00 |	Los estudiantes saben qu√© curso est√°n tomando
 | -programa: POSGRADO      |
 \                          /
   -------------------------
  
 
-Y si hacemos lo inverso, si definimos una navegabilidad de curso Estudiante, "IntroducciÛn 
-a UML" podrÌa tener acceso a Juan y MarÌa, pero estos no tendrÌan acceso a su curso. 
+Y si hacemos lo inverso, si definimos una navegabilidad de curso Estudiante, "Introducci√≥n 
+a UML" podr√≠a tener acceso a Juan y Mar√≠a, pero estos no tendr√≠an acceso a su curso. 
 
 
   ------------------------
@@ -386,20 +386,20 @@ a UML" podrÌa tener acceso a Juan y MarÌa, pero estos no tendrÌan acceso a su cu
   -------------------------
 
 
-Entonces es posible que te estÈs preguntando aquÌ, en un lenguaje de programaciÛn orientada 
-a objetos, por ejemplo Java, donde no existe el concepto explÌcito de asociaciÛn, 
-øcÛmo las implementamos? 
+Entonces es posible que te est√©s preguntando aqu√≠, en un lenguaje de programaci√≥n orientada 
+a objetos, por ejemplo Java, donde no existe el concepto expl√≠cito de asociaci√≥n, 
+¬øc√≥mo las implementamos? 
 
-La respuesta es Èsta, se implementan definiendo atributos de cada 
-clase de la asociaciÛn de acuerdo con los roles y la navegabilidad. 
+La respuesta es √©sta, se implementan definiendo atributos de cada 
+clase de la asociaci√≥n de acuerdo con los roles y la navegabilidad. 
 
-Vayamos a nuestro ejemplo una vez m·s. En la clase Estudiante, debemos declarar como atributo 
-una colecciÛn de objetos de tipo curso de nombre "cursos Vistos" en el que estar·n registrados 
+Vayamos a nuestro ejemplo una vez m√°s. En la clase Estudiante, debemos declarar como atributo 
+una colecci√≥n de objetos de tipo curso de nombre "cursos Vistos" en el que estar√°n registrados 
 todos los cursos vistos por los estudiantes. 
 
 
  ---------------------                                         ---------------------
-|        Curso        | 1..*           vistoPor ?           * |     Estudiante      |
+|        Curso        | 1..*           vistoPor ‚ñ∂           * |     Estudiante      |
  ---------------------                                         ---------------------
 |                     | ------------------------------------- |                     |
  ---------------------  cursosVistos     estudiantesInscritos  ---------------------
@@ -410,15 +410,15 @@ todos los cursos vistos por los estudiantes.
 
 
 
-Y en la implementaciÛn, tendremos que garantizar que este arreglo debe tener siempre al menos 
+Y en la implementaci√≥n, tendremos que garantizar que este arreglo debe tener siempre al menos 
 un objeto. 
 
-Por otro lado, en la clase Curso declaramos una colecciÛn de objetos de tipo estudiante 
+Por otro lado, en la clase Curso declaramos una colecci√≥n de objetos de tipo estudiante 
 llamado "estudiantes Inscritos". 
 
 
  ---------------------                                         ---------------------
-|        Curso        | 1..*           vistoPor ?           * |     Estudiante      |
+|        Curso        | 1..*           vistoPor ‚ñ∂           * |     Estudiante      |
  ---------------------                                         ---------------------
 |                     | ------------------------------------- |                     |
  ---------------------  cursosVistos     estudiantesInscritos  ---------------------
@@ -428,22 +428,22 @@ llamado "estudiantes Inscritos".
    Collection<Estudiante> estudiantesInscritos
 
 
-Y si tenemos una navegabilidad indicada en direcciÛn de los estudiantes, solamente tendremos 
-la colecciÛn "estudiantes Inscritos" del lado de los cursos, pero no tendremos la colecciÛn 
+Y si tenemos una navegabilidad indicada en direcci√≥n de los estudiantes, solamente tendremos 
+la colecci√≥n "estudiantes Inscritos" del lado de los cursos, pero no tendremos la colecci√≥n 
 "cursos Vistos" del lado de los estudiantes debido a lo que mencionamos anteriormente. 
 
-Si tuviÈramos una asociaciÛn con cardinalidad de uno, en lugar de tener una colecciÛn, 
-tendrÌamos un atributo de la clase que est· al otro lado de la asociaciÛn. 
+Si tuvi√©ramos una asociaci√≥n con cardinalidad de uno, en lugar de tener una colecci√≥n, 
+tendr√≠amos un atributo de la clase que est√° al otro lado de la asociaci√≥n. 
 
 Miremos el ejemplo de una clase "Universidad" y una clase "Estudiante". 
 
-Un estudiante sÛlo puede estudiar en una universidad, asÌ que su cardinalidad es uno. 
+Un estudiante s√≥lo puede estudiar en una universidad, as√≠ que su cardinalidad es uno. 
 Del lado de la clase Estudiante, debe existir entonces un atributo de la clase Universidad 
-que seg˙n el rol se llama "Universidad" y que modela la universidad en la que estudia. 
+que seg√∫n el rol se llama "Universidad" y que modela la universidad en la que estudia. 
 
 
  ---------------------                                         ---------------------
-|    Universidad      | 1           ? estudiaEn             * |     Estudiante      |
+|    Universidad      | 1           ‚óÄ estudiaEn             * |     Estudiante      |
  ---------------------                                         ---------------------
 |                     | ------------------------------------- |                     |
  ---------------------  universidad               estudiantes  ---------------------
@@ -454,10 +454,10 @@ que seg˙n el rol se llama "Universidad" y que modela la universidad en la que es
 
 
 Estas decisiones de modelado van a variar dependiendo de cada problema, pero es importante 
-que reflejen lo m·s precisamente posible el contexto que estamos tratando de abstraer. 
+que reflejen lo m√°s precisamente posible el contexto que estamos tratando de abstraer. 
 
-Es importante notar que, una vez que tomamos una decisiÛn y la modelamos, quien la lea 
-interpretar· el modelo en consecuencia, es decir, exactamente igual a la decisiÛn que tomamos. 
+Es importante notar que, una vez que tomamos una decisi√≥n y la modelamos, quien la lea 
+interpretar√° el modelo en consecuencia, es decir, exactamente igual a la decisi√≥n que tomamos. 
 
 Significa que de esta forma podemos validar el entendimiento del problema. 
 
@@ -465,26 +465,26 @@ Pongamos un ejemplo. Sobre este diagrama leo que un estudiante debe estar inscri
 menos, un curso. 
 
 Cuando validamos el modelo, los responsables pueden aceptar esto o decirnos, si es el caso, 
-que un estudiante podrÌa no estar inscrito en ning˙n curso, por lo que deberÌamos modificar 
+que un estudiante podr√≠a no estar inscrito en ning√∫n curso, por lo que deber√≠amos modificar 
 la cardinalidad. 
 
-Ahora hablemos un poco m·s de los mÈtodos. En otros videos anteriores vimos que podÌamos 
-definir el comportamiento de las clases a travÈs de mÈtodos y vimos algunas operaciones 
-b·sicas como retornar o cambiar el valor de un atributo. 
+Ahora hablemos un poco m√°s de los m√©todos. En otros videos anteriores vimos que pod√≠amos 
+definir el comportamiento de las clases a trav√©s de m√©todos y vimos algunas operaciones 
+b√°sicas como retornar o cambiar el valor de un atributo. 
 
-Tener un modelo que crece en complejidad nos permite pensar tambiÈn en mÈtodos que, a su vez, 
-son de mayor complejidad, que representan cÛmo se comportan los objetos en relaciÛn a las 
+Tener un modelo que crece en complejidad nos permite pensar tambi√©n en m√©todos que, a su vez, 
+son de mayor complejidad, que representan c√≥mo se comportan los objetos en relaci√≥n a las 
 asociaciones que hemos definido. 
 
-Pensemos en un mÈtodo para la clase Estudiante que se llama "registrar Curso" y que recibe 
-como par·metro un objeto de tipo Curso. 
+Pensemos en un m√©todo para la clase Estudiante que se llama "registrar Curso" y que recibe 
+como par√°metro un objeto de tipo Curso. 
 
-Este mÈtodo agregar· un nuevo curso para el estudiante en su lista de cursos. 
+Este m√©todo agregar√° un nuevo curso para el estudiante en su lista de cursos. 
 
-Podemos incluso idear mÈtodos m·s complejos con m·s par·metros, quiz·s un mÈtodo "cambiar 
+Podemos incluso idear m√©todos m√°s complejos con m√°s par√°metros, quiz√°s un m√©todo "cambiar 
 Curso" que reciba una cadena de caracteres y un curso, que le permita al estudiante cambiar 
-el curso del nombre que viene como primer par·metro, por uno que se le envÌa como segundo 
-par·metro. 
+el curso del nombre que viene como primer par√°metro, por uno que se le env√≠a como segundo 
+par√°metro. 
 
 
  ---------------------                                         -------------------------------
@@ -492,7 +492,7 @@ par·metro.
  ---------------------                                         -------------------------------
 |                     |                                       | - nombre: String              |
 |                     |                                       | - carnet: int                 |
-|                     | 1..*           vistoPor ?           * | - fechaNacimiento: Date       |
+|                     | 1..*           vistoPor ‚ñ∂           * | - fechaNacimiento: Date       |
 |                     | ------------------------------------- | - programa: TipoPrograma      |
  ---------------------  cursosVistos     estudiantesInscritos  -------------------------------
 |                     |                                       | + registraCurso(Curso)        |
@@ -500,5 +500,5 @@ par·metro.
  ---------------------                                         -------------------------------
 
 
-Podemos aquÌ ver cÛmo podemos enviar uno o varios par·metros al momento de crear un mÈtodo, 
+Podemos aqu√≠ ver c√≥mo podemos enviar uno o varios par√°metros al momento de crear un m√©todo, 
 y eso nos va a permitir aumentar la complejidad de los comportamientos que modelamos.

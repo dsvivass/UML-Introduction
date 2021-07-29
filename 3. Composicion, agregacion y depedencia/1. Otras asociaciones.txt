@@ -1,0 +1,350 @@
+﻿ASOCIACIONES COMPUESTAS (COMPOSITE) 
+	o asociaciones de agregacion de tipo compuesto
+
+Las asociaciones de tipo compuesto representan relaciones de tipo agregación, y una 
+AGREGACIÓN representa una asociación entre dos clases en las que una es un todo, y la otra 
+es una parte de dicho todo, es decir, las partes de un todo. 
+
+			Agregacion: todo - parte de
+
+Por ejemplo, un carro se compone de un motor, cuatro llantas, un sistema electrónico. 
+
+O un libro se compone de un prólogo, varios capítulos y una bibliografía. Partes de un todo.
+
+Como vemos, las asociaciones compuestas nos permiten modelar una relación en donde las 
+partes le pertenecen a este único todo y en nuestro ejemplo, al carro le pertenecía el 
+motor y todos los elementos.
+
+Este motor no podría ser parte de diferentes carros. 
+
+¿Cómo representamos entonces en UML una asociación compuesta? 
+De nuevo, una línea, pero en el extremo que corresponde a la parte de la asociación que hace 
+las veces del todo, hacemos un rombo relleno.
+
+Vamos a pensar en un ejemplo. Un libro tiene varios capítulos. 
+Tiene sentido pensar que como un libro está compuesto por estos capítulos, es el todo, y que 
+los capítulos solo pueden existir dentro del contexto de este único libro.
+
+ ---------------------                       ---------------------
+|        Libro        |      tiene ▶        |      Capitulo       |
+ ---------------------                       ---------------------
+|                     | ⧫-----------------  |                     |
+ ---------------------                       ---------------------
+|                     | libro     Capitulos |                     |
+ ---------------------                       ---------------------
+
+Esta es la característica principal de las asociaciones de agregación de tipo compuesto en 
+las que la existencia de las instancias de una clase, las partes, dependerán de la existencia 
+de las instancias del todo, y en las que solo puede haber un único todo. 
+
+Hablemos ahora de la cardinalidad de las asociaciones compuestas. Debido a la naturaleza de 
+las asociaciones, hay ciertas restricciones que debemos cumplir. 
+
+La más importante es que del lado de la asociación que representa la clase del todo, la 
+cardinalidad debe ser 1, mientras que del lado de las partes puede ser cualquiera de las que 
+hemos visto en el video anterior. 
+
+ ---------------------                       ---------------------
+|        Libro        | 1    tiene ▶       *|      Capitulo       |
+ ---------------------                       ---------------------
+|                     | ⧫-----------------  |                     |
+ ---------------------                       ---------------------
+|                     | libro     Capitulos |                     |
+ ---------------------                       ---------------------
+
+Es decir, todas las partes estarán asociadas exactamente a un, y solo un todo. 
+
+La navegabilidad también puede hacerse explícita en esta relación. Es posible restringir qué 
+objetos tienen visibilidad sobre otros, pero, y esto es muy importante, debido a la naturaleza 
+de la asociación, a lo sumo podemos tener un navegabilidad desde la clase todo a la clase de 
+las partes, pero no podríamos restringirlos de modo contrario. 
+
+Por ejemplo, en los capítulos de un libro podríamos ver el título del libro como suele 
+suceder, pero en el caso contrario solo a través de la tabla de contenidos del libro 
+podríamos ver cada capítulo y seguirlo leyendo.
+
+Las demás convenciones que hemos visto hasta el momento se aplican normalmente. 
+
+Podemos nombrarlas, asignarles roles de acuerdo a lo que representan, como hemos visto en 
+lecciones anteriores. 
+
+Y sus convenciones de nombramiento para las asociaciones de tipo compuesto, se mantienen. 
+
+Ahora, revisemos las implicaciones de una asociación compuesta para los objetos. 
+
+La primera consecuencia es que todos los objetos instancias de la clase que tiene el rol de 
+parte de, están ligadas al todo. 
+
+Su creación y su destrucción estará en manos de los objetos de los que hace parte. 
+
+Para comenzar, vamos a utilizar este ejemplo, el ejemplo del libro que tiene varios capítulos, 
+y los capítulos están relacionados a través de una asociación compuesta. 
+
+Y vamos a pensar en una clase curso en línea, que tiene una asociación simple con los 
+capítulos para ilustrar que el curso en línea puede publicar esas lecturas capítulos del libro.
+
+ 			 ---------------------
+			|        Libro        |
+			 ---------------------
+			|                     |
+			 ---------------------
+			|                     |
+			 ---------------------
+			libro	   ⧫
+				   |   tiene
+		      capitulos  * |     ▼
+ 			 ---------------------
+			|      Capitulo       |
+			 ---------------------
+			|                     |
+			 ---------------------
+			|                     |
+			 ---------------------
+		       lecturas	   ᐱ     ▲
+				   |  publica
+				 * |
+ 			 ---------------------
+			|     CursoEnLinea    |
+			 ---------------------
+			|                     |
+			 ---------------------
+			|                     |
+			 ---------------------
+
+
+Ahora vamos a ilustrar usando notación básica de teoría de conjuntos que no hacen parte de 
+UML pero nos van a servir para entender estos conceptos, cuáles son las implicaciones para 
+las instancias de la clase capítulo de la asociación compuesta. 
+
+Imaginemos que tenemos una instancia de nuestra clase libro que será el libro de Introducción 
+a UML.
+
+Este objeto podrá tener tres capítulos. 
+
+El capítulo 1, el capítulo 2 y el capítulo 3, que serán instancias de nuestra clase capítulo. 
+
+Y podemos también imaginar un curso en línea que va a publicar alguno de los capítulos como 
+parte de sus lecturas. 
+
+Entonces, los capítulos están relacionados con nuestro libro a través de una relación de 
+composición.
+
+Pero podemos también pensar que el curso 1 tiene una asociación simple que le permitirá 
+publicar este capítulo 3. 
+
+Ahora, del ciclo de vida de las instancias de la clase capítulo que hacen parte de nuestro 
+libro Introducción a UML, dependen exclusivamente de la existencia de este objeto. 
+
+Si este objeto fuese destruido, todos los capítulos serían destruidos, y por consecuencia, 
+la lectura que apunta o la lectura que publica el capitulo 3 de nuestro curso en línea 
+también desaparecería porque los objetos dejarán de existir. 
+
+Y bien, este es el resultado final. 
+
+Al haber eliminado nuestro objeto libro, Introducción a UML, todos sus capítulos que están 
+relacionados a través de una relación de composición, dejan de existir también. 
+
+Y por lo tanto, nuestro curso, curso 1, que publicaba como parte de sus lecturas ese capítulo, 
+ya no puede hacerlo. 
+
+Sin embargo, noten que la instancia curso 1, instancia de la clase curso en línea, continúa 
+existiendo normalmente. 
+
+¿Por qué? 
+Porque solo había una asociación simple entre curso en línea y capítulo.
+
+
+########################################################################################
+
+
+ASOCIACIONES COMPARTIDAS (SHARED) 
+	o asociaciones de agregación de tipo compartidas
+
+Las asociaciones de tipo compartido representan relaciones de tipo agregación. 
+
+Si recuerdas esto de nuestro video anterior, una agregación representa una asociación entre 
+dos clases en las que una es un todo y la otra es una parte de dicho todo. 
+
+En otras palabras, las partes de un todo. 
+
+Las asociaciones compartidas según la especificación de UML 2.5 tienen menos restricciones 
+que las compuestas, Pero también nos abren la puerta a toda una dimensión de posibilidades 
+para modelar nuestros problemas. 
+
+Veamos bien de qué se trata. Hablemos de cómo representar una asociación compartida en UML. 
+
+Usamos una línea, pero en el extremo que corresponde a la clase que hace las veces del todo, 
+o la que está compuesta de varias partes, dibujaremos un rombo vacío. 
+
+Revisemos un ejemplo. Una universidad tiene varios programas y a un programa pueden pertenecer 
+varios estudiantes. 
+
+ -------------        	 	        ----------           		  ------------
+| Universidad |1     tiene ▶   	      *| Programa |*   tieneInscritos ▶ *| Estudiante |
+ -------------         		        ----------          		  ------------
+|             |------------------------|          |◊---------------------|            |
+ ------------- universidad    programas	---------- programas  estudiantes ------------
+|             |         	       |          |          		 |            |
+ -------------          	        ----------            		  ------------
+
+En este caso vemos que, aunque los estudiantes tienen que hacer parte necesariamente de un 
+programa, es posible conseguir instancias de estudiantes que no dependan como tal de los 
+programas. 
+
+Esto nos lleva entonces a considerar la cardinalidad de las asociaciones compartidas. 
+
+A diferencia de las asociaciones compuestas, hay menos restricciones asociadas. 
+
+En particular, la cardinalidad del lado del todo no está limitada, un estudiante puede ser 
+parte de varios programas. 
+
+Por ejemplo, quizás esté haciendo una doble titulación o una triple, si es que eso es posible. 
+
+Al igual que en las asociaciones compuestas, en una asociación compartida las partes pueden 
+tener cualquier cardinalidad, en este caso, será muchas. 
+
+La navegabilidad también puede hacerse explícita en esta relación. 
+
+Es posible restringir qué objetos tienen visibilidad sobre otro pero, y esto es un pero muy 
+importante, debido a la naturaleza de la asociación, a lo sumo podemos tener una navegabilidad 
+desde la clase que hace del todo hacia las partes, pero no de modo contrario, así como sucede 
+las asociaciones compuestas. 
+
+Entonces, los cursos saben qué estudiantes los toman y los estudiantes qué cursos están 
+tomando. 
+
+Es posible imaginar una situación en la que queramos restringir las cosas, pero tendría poco 
+sentido no dejar que los cursos manejen o conozcan a sus estudiantes. 
+
+Las demás convenciones también se aplican normalmente. 
+
+Podemos nombrarlas y asignarles rol de acuerdo con lo que representan, como en nuestros 
+ejemplos anteriores, y sus convenciones de nombramiento se mantienen. 
+
+Podemos tener una instancia de la clase Universidad que llamaremos "U1". 
+
+Esa instancia puede tener dos programas un programa de Ingeniería Industrial y un programa de 
+Ingeniería de Sistemas, y en cada programa habrán inscritos estudiantes. 
+
+Podemos pensar en una instancia "e1" de la clase Estudiante, "e2" y "e3". 
+
+En este caso, la Universidad tiene dos programas y "e1" podría estar inscrito en Ingeniería 
+Industrial, al igual que "e2", "e3" podría estar inscrito en Ingeniería de Sistemas y "e2" 
+estará haciendo doble programa con Ingeniería Industrial. 
+
+Entonces, lo que sucederá es que las instancias de la clase Estudiante no dependerán de la 
+existencia de la clase Programa. 
+
+Esto es, si la universidad en algún momento decide acabar con el programa de Ingeniería 
+Industrial, en ese caso los estudiantes no desaparecerán. 
+
+Entonces, notemos cómo al eliminar el programa de Ingeniería Industrial, los estudiantes "e2" 
+y "e3" siguen inscritos a un programa y, de acuerdo a la definición de nuestro problema, el 
+estudiante "e1" podría pasarse a otro programa o dejar de estar inscrito en la universidad. 
+
+Y entonces es aquí cuando podrías preguntarte, 
+"¿no hace falta de pronto una relación para ese tipo de situaciones?" 
+
+Y sí, la respuesta es sí. Falta una relación que modele la inscripción de los estudiantes a la 
+universidad. 
+
+Y eso tiene un impacto directo porque hace falta una asociación entre la clase Universidad y 
+la clase Estudiante. 
+
+Esta asociación será uno a varios. 
+
+
+
+ 			 ---------------------
+			|    Universidad      |
+		      1	 ---------------------
+	----------------|                     |
+	|		 ---------------------
+	|		|                     |
+	|		 ---------------------
+	|	    universidad	   ⧫
+	|			   |   tiene
+	|	      programas  * |     ▼
+ 	|		 ---------------------
+	|		|      Programa       |
+	|		 ---------------------
+	|               |                     |
+	|		 ---------------------
+	|		|                     |
+	|		 ---------------------
+	|	      programas	 * ᐱ     
+	|			   |  tieneInscrito
+	|	    estudiantes	 * |     ▼
+ 	|		 ---------------------
+	|		|      Estudiante     |
+	|	      *	 ---------------------
+	|---------------|                     |
+			 ---------------------
+			|                     |
+			 ---------------------
+
+
+Con esto acabamos nuestra notación de conjuntos, que no hace parte de UML, pero nos sirven 
+para representar cómo funcionan las instancias en el caso de las asociaciones compartidas. 
+
+DEPENDENCIAS
+
+Antes de terminar vale la pena mencionar un tipo muy especial de relaciones entre las clases, 
+las dependencias. 
+
+Las dependencias modelan la relación entre dos clases, una de las cuales necesita de otra 
+para su implementación, ya sea a nivel semántico o a nivel estructural. 
+
+Las relaciones de dependencia también se les conoce como "relaciones de cliente-proveedor", 
+ya que hay una clase que provee elementos, el proveedor, a otra para su implementación, el 
+cliente. 
+
+Las dependencias se expresan como una flecha punteada de forma dirigida desde el cliente 
+hasta el proveedor, junto con el estereotipo adecuado, si se quiere ser más claro con el 
+tipo de dependencia. 
+
+				   <<usa>>
+		- - - - - - - - - - - - - - - - - - - - - - - - >
+
+Notemos que, como una dependencia no es una asociación "per se", los roles, el nombre más 
+allá del estereotipo, y la cardinalidad no son indicados. 
+
+Aunque las dependencias pueden tomar múltiples formas, instanciación llamado "uso" en 
+GenMyModel, en el contexto de nuestro curso sólo usaremos dependencias para tipo "uso", 
+que significa que una clase usa, justamente, instancias de un proveedor como parámetros de 
+sus métodos. 
+
+Pensemos en una clase "Hoja de Asistencia" que es parte de una asociación compuesta de la 
+clase "Curso". 
+
+Esta clase tendrá un método "agregar Estudiante" que registra el nombre y código de un 
+estudiante a la Hoja de Asistencia. Para funcionar necesita como parámetro una instancia de 
+la clase "Estudiante", pero podemos decir que no es necesario que exista una asociación entre 
+"Hoja de Asistencia" y "Estudiante". 
+
+¿Por qué? 
+
+Porque dicha asociación sería mucho menos relevante. 
+
+En este caso se establece la dependencia porque a través del parámetro del método "agregar 
+Estudiante" de la clase "Hoja de Asistencia" se conoce o se usa a la clase "Estudiante". 
+
+                                 ---------------------- 
+				|        Curso         |
+			cursos	 ----------------------  cursos
+	   --------------------⧫|                      |-------------------
+	   |			 ----------------------	*		  |
+	   |			|                      |		  |
+	   |	tiene		 ----------------------    tieneInscritos |
+	   |	  ▼			     			  ▼	  |
+asistencia |*								 *| estudiantes
+ -------------------------------           		         ---------------------         
+|        HojaAsistencia    	| 				|      Estudiante     |	     
+ -------------------------------             <<usa>>	         ---------------------        
+|                     		|------------------------------>|                     |	      
+ -------------------------------  	 			 ---------------------        
+|+ agregarEstudiante(Estudiante)|         			|                     |       
+ -------------------------------          			 ---------------------         
+
+La dependencia, al no ser una asociación, solo tiene una dirección que va 
+desde el cliente hacia el proveedor.
